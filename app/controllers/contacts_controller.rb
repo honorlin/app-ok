@@ -19,13 +19,26 @@ class ContactsController < ApplicationController
 
   def update
   	@contact = @agent.contacts.find(params[:id])
-  	@contact.update_attributes(contacts_params)
-  	redirect_to agent_contacts_path(@agent)
+
+  	if @contact.update_attributes(contacts_params)
+  		flash[:warning] = "Success!"
+  		redirect_to agent_contacts_path(@agent)
+  	else
+  		flash[:warning] = "Fail!:#{@contact.errors.full_messages}"
+  		render :edit
+  	end
   end
 
   def create
-  	@agent.contacts.create(contacts_params)
-  	redirect_to agent_contacts_path(@agent)
+  	@contact = @agent.contacts.new(contacts_params)
+
+  	if @contact.save
+  		flash[:warning] = "Success!"
+  		redirect_to agent_contacts_path(@agent)
+  	else
+  		flash[:warning] = "Fail!#{@contact.errors.full_messages}"
+  		render :new
+  	end
   end
 
   def destroy

@@ -30,6 +30,11 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
+      <% if flash[:warning] %>
+      	<div class="alert fade in alert-success"><a class="close" data-dismiss="alert" href="#">x</a>
+        	<%= flash[:warning] %>
+      	</div>
+    	<% end %>
 		<%= yield %>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

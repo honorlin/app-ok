@@ -15,9 +15,13 @@ class AgentsController < ApplicationController
 
   def create
   	@agent = Agent.new(agent_params)
-  	@agent.save
-
-  	redirect_to agents_path
+  	if @agent.save
+  		flash[:warning] = "Success!"
+  		redirect_to agents_path
+  	else
+  		flash[:warning] = "Fail!:#{@agent.errors.full_messages}"
+  		render :new
+  	end
 
   end
 
@@ -29,9 +33,11 @@ class AgentsController < ApplicationController
   	@agent = Agent.find(params[:id])
   	
   	if @agent.update_attributes(agent_params)
+  		flash[:warning] = "Success!"
   		redirect_to agents_path
   	else	
-  		redirect_to edit_agent_path(params[:id])
+  		flash[:warning] = "Fail!:#{@agent.errors.full_messages}"
+  		render :edit
   	end 
 
   end
