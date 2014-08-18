@@ -1,0 +1,8 @@
+<h1>All contacts of this agent</h1>
+<table>
+	<% @contacts.each do |contact| %>
+		<tr>
+			<td><%= contact.name%></td>
+		</tr>
+	<% end %>
+</table>

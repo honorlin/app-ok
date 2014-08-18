@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
  
+  get 'contacts/index'
+
+  get 'contacts/show'
+
+  get 'contacts/edit'
+
+  get 'contacts/new'
+
   resources :agents do
     resources :contacts
   end

@@ -1,0 +1,6 @@
+<h1>Contact#new</h1>
+<%= simple_form_for [@agent, @contact] do |f| %>
+	<%= f.label :name, "Name" %>
+	<%= f.text_field :name %>
+	<%= f.submit "add" %>
+<% end %>

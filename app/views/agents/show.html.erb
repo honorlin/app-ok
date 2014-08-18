@@ -3,3 +3,23 @@
 <p><%= @agent.name %></p>
 <p><%= @agent.tel %></p>
 
+<p>
+	<strong>All contacts of this agent</strong>
+</p>
+<hr>
+<table>
+	<% @contacts.each do |contact| %>
+		<tr>
+			<td>
+				<%= contact.name %>
+			</td>
+			<td>
+				<%= contact.email %>
+			</td>
+		</tr>	
+	<% end %>
+</table>
+
+<p>
+	<%= link_to "new_contact", new_agent_contact_path(@agent) %>
+</p>
