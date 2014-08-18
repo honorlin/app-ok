@@ -1,0 +1,29 @@
+<table>
+	<% @agents.each do |agent|%>
+		<tr>
+			<td>
+				<%= agent.id %>
+			</td>
+			<td>
+				<%= agent.name %>
+			</td>
+			<td>
+				<%= agent.tel %>
+			</td>	
+			<td>
+				<%= link_to "show", agent_path(agent) %>
+			</td>
+			<td>
+				<%= link_to "update", edit_agent_path(agent) %>
+			</td>
+			<td>
+				<%= link_to "destroy", agent_path(agent), method: :delete, data: { :confirm => "Are you sure?" } %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<p>
+	<%= link_to "new", new_agent_path %>
+</p>
+

@@ -1,0 +1,13 @@
+<%= form_for @agent do |f| %>
+	<p>	
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :tel, "TEL" %>
+		<%= f.text_field :tel %>
+	</p>
+	<p>
+		<%= f.submit "add" %>
+	</p>
+<% end %>

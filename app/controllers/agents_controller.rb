@@ -1,0 +1,51 @@
+class AgentsController < ApplicationController
+  def index
+  	@agents = Agent.all
+  end
+
+  def show
+  	@agent = Agent.find(params[:id])
+  	@contacts = @agent.contacts.all
+
+  end
+
+  def new
+  	@agent = Agent.new
+  end
+
+  def create
+  	@agent = Agent.new(agent_params)
+  	@agent.save
+
+  	redirect_to agents_path
+
+  end
+
+  def edit
+  	@agent = Agent.find(params[:id])
+  end
+
+  def update
+  	@agent = Agent.find(params[:id])
+  	
+  	if @agent.update_attributes(agent_params)
+  		redirect_to agents_path
+  	else	
+  		redirect_to edit_agent_path(params[:id])
+  	end 
+
+  end
+
+  def destroy
+  	@agent = Agent.find(params[:id])
+  	@agent.destroy
+  	redirect_to agents_path
+  end
+
+private
+
+	def agent_params
+		params.require("agent").permit(:name, :tel)
+	end
+
+end
