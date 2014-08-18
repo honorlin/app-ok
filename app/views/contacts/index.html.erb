@@ -3,6 +3,17 @@
 	<% @contacts.each do |contact| %>
 		<tr>
 			<td><%= contact.name%></td>
+			<td><%= contact.email %></td>
+			<td><%= link_to "show", agent_contact_path(contact.agent, contact)  %>
+			<td><%= link_to "update", edit_agent_contact_path(contact.agent, contact) %></td>
+			<td><%= link_to "destroy", agent_contact_path(contact.agent, contact), method: :delete, data: { :confirm => "Are you sure?" }  %></td>
 		</tr>
 	<% end %>
 </table>
+
+<p>
+	<%= link_to "back_to_agent_list", agents_path %>
+</p>
+<p>
+	<%= link_to "new_contact", new_agent_contact_path(@agent) %>
+</p>

@@ -1,2 +1,14 @@
 <h1>Contacts#edit</h1>
-<p>Find me in app/views/contacts/edit.html.erb</p>
+<%= simple_form_for [@agent, @contact] do |f| %>
+	<p>
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :email, "Email" %>
+		<%= f.text_field :email %>
+	</p>
+	<p>
+		<%= f.submit "update" %>
+	</p>
+<% end %>
