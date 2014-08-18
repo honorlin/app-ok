@@ -1,29 +1,29 @@
-<table>
-	<% @agents.each do |agent|%>
-		<tr>
-			<td>
-				<%= agent.id %>
-			</td>
-			<td>
-				<%= agent.name %>
-			</td>
-			<td>
-				<%= agent.tel %>
-			</td>	
-			<td>
-				<%= link_to "show", agent_path(agent) %>
-			</td>
-			<td>
-				<%= link_to "update", edit_agent_path(agent) %>
-			</td>
-			<td>
-				<%= link_to "destroy", agent_path(agent), method: :delete, data: { :confirm => "Are you sure?" } %>
-			</td>
+<table class="table">
+	<tbody>
+		<tr>		
+			<th>ID</th>
+			<th>Name</th>
+			<th>TEL</th>
+			<th>SHOW</th>
+			<th>UPDATE</th>
+			<th>DELETE</th>
+			<th>CONTACTS</th>
 		</tr>
-	<% end %>
+		<% @agents.each do |agent|%>
+			<tr>
+				<td><%= agent.id %></td>
+				<td><%= agent.name %></td>
+				<td><%= agent.tel %></td>	
+				<td><%= link_to "show", agent_path(agent), :class => "btn btn-info" %></td>
+				<td><%= link_to "update", edit_agent_path(agent), :class => "btn btn-success"  %></td>
+				<td><%= link_to "destroy", agent_path(agent), method: :delete, data: { :confirm => "Are you sure?" }, :class => "btn btn-danger"  %></td>
+				<td><%= link_to "Contacts", agent_contacts_path(agent), :class => "btn btn-warning" %></td>
+			</tr>
+		<% end %>
+	<tbody>
 </table>
 
 <p>
-	<%= link_to "new", new_agent_path %>
+	<%= link_to "New Agent", new_agent_path, :class => "btn btn-lg btn-primary" %>
 </p>
 

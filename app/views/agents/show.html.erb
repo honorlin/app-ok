@@ -1,8 +1,12 @@
-<h1>Agents#show</h1>
-<p><%= @agent.id %></p>
-<p><%= @agent.name %></p>
-<p><%= @agent.tel %></p>
-
-<p>
-	<%= link_to "show contacts", agent_contacts_path(@agent) %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Agent Information</h3>
+  </div>
+  <div class="panel-body">
+		<p><strong>ID:</strong> <%= @agent.id %></p>
+		<p><strong>NAME:</strong> <%= @agent.name %></p>
+		<p><strong>TEL:</strong> <%= @agent.tel %></p>
+		<p><%= link_to "Show Contacts", agent_contacts_path(@agent), :class => "btn btn-lg btn-primary" %></p>
+	</div>
+</div>
+	

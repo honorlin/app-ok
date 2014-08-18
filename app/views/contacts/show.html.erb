@@ -1,5 +1,10 @@
-<h1>Contacts#show</h1>
-<p>
-	<%= @contact.name %>
-	<%= @contact.email %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Contact Information</h3>
+  </div>
+  <div class="panel-body">
+		<p><strong>NAME:</strong> <%= @contact.name %></p>
+		<p><strong>EMAIL:</strong> <%= @contact.email %></p>
+		<p><%= link_to "Back", agent_contacts_path(@agent), :class => "btn btn-lg btn-primary" %></p>
+	</div>
+</div>

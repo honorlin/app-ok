@@ -1,19 +1,22 @@
-<h1>All contacts of this agent</h1>
-<table>
+<h1>All contacts of agent : <%= @agent.name %></h1>
+<table class="table">
+	<tr>
+		<th>NAME</th>
+		<th>EMAIL</th>
+		<th>SHOW</th>
+		<th>UPDATE</th>
+		<th>DELETE</th>
+	</tr>
 	<% @contacts.each do |contact| %>
 		<tr>
 			<td><%= contact.name%></td>
 			<td><%= contact.email %></td>
-			<td><%= link_to "show", agent_contact_path(contact.agent, contact)  %>
-			<td><%= link_to "update", edit_agent_contact_path(contact.agent, contact) %></td>
-			<td><%= link_to "destroy", agent_contact_path(contact.agent, contact), method: :delete, data: { :confirm => "Are you sure?" }  %></td>
+			<td><%= link_to "show", agent_contact_path(contact.agent, contact), :class => "btn btn-info"  %>
+			<td><%= link_to "update", edit_agent_contact_path(contact.agent, contact), :class => "btn btn-success" %></td>
+			<td><%= link_to "destroy", agent_contact_path(contact.agent, contact), method: :delete, data: { :confirm => "Are you sure?" }, :class => "btn btn-danger"   %></td>
 		</tr>
 	<% end %>
 </table>
 
-<p>
-	<%= link_to "back_to_agent_list", agents_path %>
-</p>
-<p>
-	<%= link_to "new_contact", new_agent_contact_path(@agent) %>
-</p>
+<p><%= link_to "Back To Agent List", agents_path, :class => "btn btn-lg btn-primary" %></p>
+<p><%= link_to "New Contact", new_agent_contact_path(@agent), :class => "btn btn-lg btn-primary" %></p>

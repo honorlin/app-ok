@@ -1,14 +1,20 @@
-<h1>Contact#new</h1>
-<%= simple_form_for [@agent, @contact] do |f| %>
-	<p>
-		<%= f.label :name, "Name" %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :email, "Email" %>
-		<%= f.text_field :email %>
-	</p>
-	<p>
-		<%= f.submit "add" %>
-	</p>
-<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Agent</h3>
+  </div>
+  <div class="panel-body">
+		<%= simple_form_for [@agent, @contact] do |f| %>
+			<p>
+				<%= f.label :name, "Name" %>
+				<%= f.text_field :name, :class => "form-control" %>
+			</p>
+			<p>
+				<%= f.label :email, "Email" %>
+				<%= f.text_field :email, :class => "form-control" %>
+			</p>
+			<p>
+				<%= f.submit "Add", :class => "btn btn-default"  %>
+			</p>
+		<% end %>
+	</div>
+</div>
